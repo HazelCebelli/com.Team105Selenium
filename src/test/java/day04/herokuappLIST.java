@@ -8,8 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 import java.util.List;
 
-public class herokuapp {
-    public static void main(String[] args) {
+public class herokuappLIST {
+public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver","src/drivers/chromedriver.exe");
         WebDriver driver=new ChromeDriver(); //Polymoprhism
         driver.manage().window().maximize();
@@ -19,14 +19,18 @@ public class herokuapp {
 
         List<WebElement> linkListesi=driver.findElements(By.tagName("li")); ////By.xPath("//li")
 
+        int count=0;
       for (WebElement parca : linkListesi) {
-          System.out.println(parca.getText().trim());
-        }
+          if(parca.getText().trim().length()<12){
+                  System.out.println(parca.getText().trim());
+                  count++;
+      }   }
+          System.out.println(count);
 
 
 
 
 
 
-    }
+}
 }

@@ -1,16 +1,14 @@
 package day03_locators;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
 import java.util.List;
 
-public class deneme {
+public class denemeLIST {
     public static void main(String[] args) {
 
         //1- Bir test class’i olusturun ilgili ayarlari yapin
