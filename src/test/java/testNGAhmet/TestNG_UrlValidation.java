@@ -37,13 +37,22 @@ public class TestNG_UrlValidation {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
-        driver.get("https://demo.opencart.com/admin/index.php?route=common/dashboard&user_token=8c959b4b56ad85f3bda8d735122fb8e9");
-        driver.findElement(By.xpath("//a[.=' Catalog']")).click();
-        WebElement pro= driver.findElement(By.xpath("//a[.='Products']"));
-      boolean actualResult= pro.isDisplayed();
-      boolean expectedResult=true;
+        driver.get("https://demo.opencart.com/admin/");
+        WebElement userName=driver.findElement(By.id("input-username"));
+        userName.sendKeys("demo");
 
-      Assert.assertEquals(actualResult,expectedResult);
+        WebElement password=driver.findElement(By.id("input-password"));
+        password.sendKeys("demo");
+
+        WebElement login=driver.findElement(By.xpath("//button[@class='btn btn-primary']"));
+        login.submit();
+
+//        driver.findElement(By.xpath("//a[.=' Catalog']")).click();
+//        WebElement pro= driver.findElement(By.xpath("//a[.='Products']"));
+//      boolean actualResult= pro.isDisplayed();
+//      boolean expectedResult=true;
+//
+//      Assert.assertEquals(actualResult,expectedResult);
 
 
 
