@@ -15,7 +15,7 @@ import java.util.List;
 public class AH_Selectt {
 
 @Test
-    public void practiceSelect(){
+    public void practiceSelect() throws InterruptedException {
     WebDriverManager.chromedriver().setup();
     WebDriver driver = new ChromeDriver();
     driver.manage().window().maximize();
@@ -31,12 +31,18 @@ public class AH_Selectt {
     for(WebElement option: allOptions){
         System.out.println(option.getText());
     }
-    //"Please sleect an option oldugunu ilk secenegin validate ediniz
+    //"Please select an option oldugunu ilk secenegi validate ediniz
 
     String expected="Please select an option";
-    String actual=select.getFirstSelectedOption().getText();
+    String actual=select.getFirstSelectedOption().getText().trim();
     Assert.assertEquals(actual,expected);
 
+    select.selectByValue("2");
+    Thread.sleep(1000);
+    select.selectByValue("1");
+    Thread.sleep(1000);
+    select.selectByIndex(2);
+    Thread.sleep(1000);
 
 
 
