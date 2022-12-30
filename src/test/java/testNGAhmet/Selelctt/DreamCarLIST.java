@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class DreamCar {
+public class DreamCarLIST {
     @Test
      public void test01(){
 
@@ -36,12 +36,15 @@ public class DreamCar {
 
        driver.findElement(By.xpath("(//button[@class='sds-button'])[1]")).click();
 
-       WebElement sortBy=driver.findElement(By.id("sort-dropdown"));
+       WebElement sortBy=driver.findElement(By.xpath("//select[@id='sort-dropdown']"));
        BrowserUtilss.selectBy(sortBy,"list_price", "value");
 
+       //GUZEL!!! VALIDATE ALL TITLES HAS LEXUS RX 350 has it
        List<WebElement> alltitles=driver.findElements(By.xpath("//h2[@class='title']"));
+       String actualTitle="";
+       String expectedTitle="Lexus RX 350";
        for(WebElement title : alltitles){
-
+           System.out.println(title);
        }
 
 
