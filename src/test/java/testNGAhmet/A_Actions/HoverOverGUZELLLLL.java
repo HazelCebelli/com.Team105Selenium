@@ -1,5 +1,6 @@
 package testNGAhmet.A_Actions;
 
+import com.beust.ah.A;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,9 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class HoverOverGUZELLLLL {
 
@@ -44,7 +43,9 @@ public class HoverOverGUZELLLLL {
             Assert.assertEquals(actualNames,expectedNames);
         }
         @Test
-    public void HoverOverPractice(){
+    public void HoverOverPractice() throws InterruptedException {
+
+            //Accaept ccookies, get all the prices and names and sort them
             WebDriverManager.chromedriver().setup();
             WebDriver driver=new ChromeDriver();
             driver.manage().window().maximize();
@@ -54,6 +55,36 @@ public class HoverOverGUZELLLLL {
             List<WebElement> names=driver.findElements(By.xpath("//div[@class='product k-listview-item']//h3"));
             List<WebElement> prices=driver.findElements(By.xpath("//div[@class='product k-listview-item']//p"));
             List<WebElement> pictures=driver.findElements(By.xpath("//div[@class='product k-listview-item']")); //30 images
+
+            List<String> namesss=new ArrayList<>();
+            List<Double> pricesss=new ArrayList<>();
+            Actions actions=new Actions(driver);
+            for(int i=0; i<pictures.size(); i++ ){
+                actions.moveToElement(pictures.get(i)).perform();
+                namesss.add(names.get(i).getText().trim());
+                Thread.sleep(500);
+                pricesss.add(Double.parseDouble(prices.get(i).getText().trim().substring(1)));
+            }
+            Collections.sort(namesss);
+            Collections.sort(pricesss);
+            System.out.println(namesss);
+            System.out.println(pricesss);
+
+
+
+            //If we make it with map, we will do it like that
+          /*  Map<String, Double> allProducts=new HashMap<>();
+
+            for(int i=0; i<pictures.size(); i++ ){
+                actions.moveToElement(pictures.get(i)).perform();
+                namesss.add(names.get(i).getText().trim());
+                Thread.sleep(500);
+                pricesss.add(Double.parseDouble(prices.get(i).getText().trim().substring(1)));
+                allProducts.put(namesss.get(i), pricesss.get(i) );
+            }
+            System.out.println(allProducts); */
+
+
 
 
 

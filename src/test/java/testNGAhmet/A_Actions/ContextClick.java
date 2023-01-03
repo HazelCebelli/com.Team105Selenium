@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
-public class ContentClick {
+public class ContextClick {
     @Test
     public void contentClick(){
         WebDriverManager.chromedriver().setup();
