@@ -43,9 +43,9 @@ public class BrowserUtilss {
     public static void switchByID(WebDriver driver,String mainId){//this is good for only 2 pages
 
         Set<String> allPagesID=driver.getWindowHandles();
-        for( String ideach: allPagesID){
-            if(!ideach.equals(mainId)){
-                driver.switchTo().window(ideach);
+        for( String id: allPagesID){
+            if(!id.equals(mainId)){
+                driver.switchTo().window(id);
             }
         }
     }
