@@ -18,9 +18,17 @@ public class IFrameTest {
         driver.get("https://the-internet.herokuapp.com");
         driver.findElement(By.linkText("Frames")).click();
         driver.findElement(By.linkText("iFrame")).click();
+
+        //switchTo().frame();
         driver.switchTo().frame("mce_0_ifr");  // go to DOM and type//iframe and take the id
+
         WebElement message=driver.findElement(By.id("tinymce"));
         System.out.println(message.getText().trim());
+
+        // get back to main frame
+        driver.switchTo().parentFrame();
+        WebElement header=driver.findElement(By.tagName("h3"));
+        System.out.println(header.getText().trim());
 
 
 
