@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.Set;
+
 public class BrowserUtilss {
 
     public static void selectBy(WebElement element, String value, String methodName){
@@ -35,6 +37,27 @@ public class BrowserUtilss {
     public static void scrollWithJS(WebDriver driver, WebElement element){
         JavascriptExecutor js=(JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true)",element);
+    }
+
+
+    public static void switchByID(WebDriver driver,String mainId){//this is good for only 2 pages
+
+        Set<String> allPagesID=driver.getWindowHandles();
+        for( String ideach: allPagesID){
+            if(!ideach.equals(mainId)){
+                driver.switchTo().window(ideach);
+            }
+        }
+    }
+
+    public static void switchBytitle(WebDriver driver,String title){
+        Set<String> allPagesID=driver.getWindowHandles();
+        for( String ideach: allPagesID){
+            driver.switchTo().window(ideach);
+            if(driver.getTitle().contains(title)){
+               break;
+            }
+        }
     }
 
 
