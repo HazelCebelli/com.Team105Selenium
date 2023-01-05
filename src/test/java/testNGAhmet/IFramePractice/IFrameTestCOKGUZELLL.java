@@ -103,6 +103,15 @@ close all tabs
         System.out.println(right.getText().trim());
 
 
+        //get bottom text
+        driver.switchTo().parentFrame(); //go back to TOP frame
+        driver.switchTo().parentFrame(); //go back to HTML frame
+        driver.switchTo().frame("frame-bottom");
+        WebElement bottom=driver.findElement(By.xpath("//body[contains(text(),'BOTTOM')]"));
+        System.out.println(bottom.getText().trim());
+
+
+
 
 
 
