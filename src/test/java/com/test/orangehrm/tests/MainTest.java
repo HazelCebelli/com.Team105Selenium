@@ -1,5 +1,6 @@
 package com.test.orangehrm.tests;
 
+import com.test.orangehrm.TestBase;
 import com.test.orangehrm.pages.LoginPage;
 import com.test.orangehrm.pages.MainPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -10,17 +11,17 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class MainTest {
+public class MainTest extends TestBase {
 
-    WebDriver driver;
-    @BeforeMethod
-    public void setUp(){
-        WebDriverManager.chromedriver().setup();
-        driver=new ChromeDriver(); //Polymoprhism
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-    }
+//    WebDriver driver;
+//    @BeforeMethod
+//    public void setUp(){
+//        WebDriverManager.chromedriver().setup();
+//        driver=new ChromeDriver(); //Polymoprhism
+//        driver.manage().window().maximize();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+//        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+//    }
     @Test
     public void validateAdminButton(){
       LoginPage loginPage=new LoginPage(driver);

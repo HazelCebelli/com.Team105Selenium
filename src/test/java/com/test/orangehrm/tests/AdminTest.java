@@ -23,7 +23,7 @@ public class AdminTest {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
     }
     @Test
-    public void validateURLandAddButton(){
+    public void validateURLandAddButton() throws InterruptedException {
 
         LoginPage loginPage=new LoginPage(driver);
         loginPage.sendInformation("Admin","admin123");
@@ -33,6 +33,8 @@ public class AdminTest {
 
         AdminPage adminPage=new AdminPage(driver);
         adminPage.clickAddButton();
+        adminPage.sendEmployeeInformation( "Alice Duval", "ahmet123",  "12345678", "12345678");
+
 
 
 

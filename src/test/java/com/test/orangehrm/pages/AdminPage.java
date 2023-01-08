@@ -44,14 +44,16 @@ public class AdminPage {
         addButton.click();
     }
 
-    public void sendEmployeeInformation(String role, String employeeName, String userName,String status, String password, String confirmPasword){
-        userRole.sendKeys("Admin");
-        this.employeeName.sendKeys("name");
+    public void sendEmployeeInformation(String employeeName, String userName, String password, String confirmPasword) throws InterruptedException {
+        //userRole.sendKeys("Admin");
+        this.employeeName.sendKeys(employeeName);
         this.userName.sendKeys(userName);
-        this.status.sendKeys(status);
+       // this.status.sendKeys(status);
         this.password.sendKeys(password);
         this.confirmPassword.sendKeys(confirmPasword);
+        Thread.sleep(1000);
         saveButton.click();
+        Thread.sleep(1000);
     }
 
 
