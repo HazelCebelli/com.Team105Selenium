@@ -19,8 +19,15 @@ public class MainPage {
     @FindBy(xpath="//a[@class='oxd-main-menu-item']//span[.='Admin']")
     WebElement adminButton;
 
+    @FindBy(xpath = "//span[.='PIM']")
+    WebElement pimButton;
+
     public void clickAdmin(){
         adminButton.click();
+    }
+
+    public void clickPimButton(){
+        pimButton.click();
     }
 
 
