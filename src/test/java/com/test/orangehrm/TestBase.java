@@ -23,6 +23,6 @@ public class TestBase {
 
     @AfterMethod
     public void tearDown(){
-        driver.close();
+        driver.quit();  // bu bazen sorun olabilir. Dikkatli olmak lazim
     }
 }
