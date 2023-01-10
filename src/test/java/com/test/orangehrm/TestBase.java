@@ -1,5 +1,6 @@
 package com.test.orangehrm;
 
+import BrowserUtils.DriverHelper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,9 +15,9 @@ public class TestBase {
     @BeforeMethod
     public void setUp(){
         WebDriverManager.chromedriver();
-        driver=new ChromeDriver(); //Polymoprhism
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        //driver=new ChromeDriver(); //Polymoprhism
+        driver= DriverHelper.getDriver(); // you centrilize your driver into one step.
+        //This is Singelton Pattern Design
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
     }
 

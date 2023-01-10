@@ -1,5 +1,6 @@
 package com.test.orangehrm.tests;
 
+import com.test.orangehrm.TestBase;
 import com.test.orangehrm.pages.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -9,16 +10,16 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class LoginTest {
+public class LoginTest extends TestBase {
 
     @Test
-    public void validatePositiveLoginTest(){
+    public void validatePositiveLoginTest() {
 
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver=new ChromeDriver(); //Polymoprhism
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+//        WebDriverManager.chromedriver().setup();
+//        WebDriver driver=new ChromeDriver(); //Polymoprhism
+//        driver.manage().window().maximize();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+//        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 
         LoginPage loginPage=new LoginPage(driver);
         loginPage.sendInformation("Admin","admin123");
@@ -29,11 +30,11 @@ public class LoginTest {
     @Test
     public void validateNegativeLoginTest() {
 
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver(); //Polymoprhism
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+//        WebDriverManager.chromedriver().setup();
+//        WebDriver driver = new ChromeDriver(); //Polymoprhism
+//        driver.manage().window().maximize();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+//        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         LoginPage loginPage = new LoginPage(driver);
         loginPage.sendInformation("Admin", "....");
         Assert.assertEquals(loginPage.errorMessage(),"Invalid credentials");
@@ -43,11 +44,11 @@ public class LoginTest {
     @Test
     public void validateNegativeLoginTest2() {
 
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver(); //Polymoprhism
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+//        WebDriverManager.chromedriver().setup();
+//        WebDriver driver = new ChromeDriver(); //Polymoprhism
+//        driver.manage().window().maximize();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+//        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         LoginPage loginPage = new LoginPage(driver);
         loginPage.sendInformation("", "");
 //        String actualMessage=loginPage.getColorOfMessage();
