@@ -1,5 +1,6 @@
 package com.test.orangehrm.tests;
 
+import BrowserUtils.ConfigReader;
 import com.test.orangehrm.TestBase;
 import com.test.orangehrm.pages.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -22,9 +23,9 @@ public class LoginTest extends TestBase {
 //        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 
         LoginPage loginPage=new LoginPage(driver);
-        loginPage.sendInformation("Admin","admin123");
+        loginPage.sendInformation(ConfigReader.readProperty("orangehrmusername"),ConfigReader.readProperty("orangehrmpassword"));
         Assert.assertEquals(driver.getCurrentUrl(),"https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index");
-        driver.close();
+
     }
 
     @Test
@@ -36,7 +37,7 @@ public class LoginTest extends TestBase {
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 //        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.sendInformation("Admin", "....");
+        loginPage.sendInformation(ConfigReader.readProperty("orangehrmusername"), "....");
         Assert.assertEquals(loginPage.errorMessage(),"Invalid credentials");
         driver.close();
     }

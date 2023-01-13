@@ -1,9 +1,12 @@
 package com.test.orangehrm;
 
+import BrowserUtils.BrowserUtilss;
+import BrowserUtils.ConfigReader;
 import BrowserUtils.DriverHelper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -18,11 +21,14 @@ public class TestBase {
         //driver=new ChromeDriver(); //Polymoprhism
         driver= DriverHelper.getDriver(); // you centrilize your driver into one step.
         //This is Singelton Pattern Design
-        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        driver.get(ConfigReader.readProperty("urlorangehrm"));
     }
 
     @AfterMethod
-    public void tearDown(){
-        driver.quit();  // bu bazen sorun olabilir. Dikkatli olmak lazim
+    public void tearDown(ITestResult result){
+        if(!result.isSuccess()){
+            BrowserUtilss.getScreenShot(driver,"OrangeHrmScreenShot");
+           // driver.quit();  // bu bazen sorun olabilir. Dikkatli olmak lazim
+        }
     }
 }
