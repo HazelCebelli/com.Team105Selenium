@@ -2,11 +2,15 @@
 
 <suite name="Parameter Practice">
 
-    <test>
+    <test name="Parameter test">
+        <parameter name="FirstName" value="Ahmet"></parameter>
+        <parameter name="countryname" value="Turkey"></parameter>
+        <parameter name="statee" value="Ankara"></parameter>
+        <parameter name="zip" value="16320"></parameter>
 
         <classes>
 
-            <class name="testNGAhmet.ParameterAnnotation"></class>
+            <class name="testNGAhmet.ParameterAnnotationGUZELOGRETICI"></class>
 
         </classes>
 
