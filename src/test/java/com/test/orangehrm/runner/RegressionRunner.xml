@@ -3,7 +3,9 @@
 <suite name="TestNG Regression Runner">
 
     <test name="OrangeHRM Tests">
-
+<parameter name="firstName" value="Reis"></parameter>
+<parameter name="lastname" value="Sahin"></parameter>
+<parameter name="birthdate" value="2018"></parameter>
         <classes>
 
             <class name="com.test.orangehrm.tests.LoginTest"></class>
