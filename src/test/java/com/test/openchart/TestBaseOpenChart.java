@@ -1,10 +1,15 @@
 package com.test.openchart;
 
+
 import BrowserUtils.BrowserUtilss;
 import BrowserUtils.ConfigReader;
 import BrowserUtils.DriverHelper;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
+
+import BrowserUtils.DriverHelper;
+import org.openqa.selenium.WebDriver;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -22,6 +27,13 @@ public class TestBaseOpenChart {
     if(!result.isSuccess()) {
         BrowserUtilss.getScreenShot(driver, "openchart");
     }
+
+    driver.get("https://demo.opencart.com/admin/");
+}
+
+@AfterMethod
+    public void tearDown(){
+
     //driver.quit();
 }
 }
