@@ -20,5 +20,6 @@ public class DataProviderPractice {
     public void dataProviderTest( String firstName,String lastName,String expectedFullName){
     String fullname=firstName+" "+lastName;
         Assert.assertEquals(fullname,expectedFullName);
+        //t
     }
 }
